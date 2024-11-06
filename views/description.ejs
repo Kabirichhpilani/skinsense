@@ -1,0 +1,57 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+
+    <div class="rowi colss">
+        <div class="col-8 offset-3">
+            <h1>Product details</h1>
+        </div>
+        <div class="col-6 offset-3 klk">
+            <div +
+            class="cardi">
+                <img src="<%= qlisting.image %>" class="cardi-img-top" style="height: 20rem; width: 35rem;" alt="...">
+                <div class="cardi-body">
+                    <p class="cardi-text"><b><%= qlisting.name %></b><br>
+                        <%= qlisting.description %><br>
+                        <%= qlisting.quantity_ml %>ml<br>
+                        <h1> &#8377;<%= qlisting.cost_in_rupees.toLocaleString("en-IN")%></h1> <br>
+                    </p>
+                    <div style="display: flex;">
+                        <form method="post" action="/shop/<%=qlisting.id%>">
+                            <button type="submit" class="btn btn-success offset-3 impbtn">Add to cart</button>
+                        </form>
+                        <form method="get" action="/shop">
+                            <button class="btn btn-info offset-5">Back</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="reviews">
+        <div class="review-form">
+            <form method="post" action="/shop/<%= qlisting._id %>/review">
+                <input type="text" name="review" placeholder="Enter your review" required>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+            <div class="pthoughts">
+                <h1>People's Thoughts</h1>
+                <p>Here are some reviews from our customers</p>
+                <div class="thoughts">
+                    <% if (qlisting.reviews && qlisting.reviews.length > 0) { %>
+                        <% for (let review of qlisting.reviews) { %>
+                            <hr>
+                            <h3 style="margin: 0;"><%= review.review %></h3> <!-- Ensure no margin for consistent spacing -->
+                            
+                        <% } %>
+                    <% } else { %>
+                        <p>No reviews yet.</p>
+                    <% } %>
+                </div>
+            </div>
+       
+    </div>
+</body>
+

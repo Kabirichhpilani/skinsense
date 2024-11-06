@@ -1,0 +1,115 @@
+<% layout("/layouts/boilerplate") %>
+<!-- Link to external CSS file -->
+    <style>
+        /* CSS styles can be included here or in an external stylesheet */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ffffff;
+            margin: 0;
+            /* padding: 20px; */
+        }
+
+        .quiz-container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 600px;
+            width: 100%;
+            transition: transform 0.2s;
+        }
+
+        .quiz-container:hover {
+            transform: scale(1.02);
+        }
+
+        h1 {
+            text-align: center;
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+        }
+
+        .question p {
+            font-weight: bold;
+            color: #333;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #007bff;
+            border-radius: 8px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        label:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .quiz-container button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 12px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+
+       .quiz-container button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Skincare Quiz</h1>
+        <form id="quiz-form">
+            <div class="question">
+                <p>1. What is your skin type?</p>
+                <label><input type="radio" name="skinType" value="oily"> Oily</label>
+                <label><input type="radio" name="skinType" value="dry"> Dry</label>
+                <label><input type="radio" name="skinType" value="combination"> Combination</label>
+                <label><input type="radio" name="skinType" value="sensitive"> Sensitive</label>
+            </div>
+            <div class="question">
+                <p>2. How often do you exfoliate your skin?</p>
+                <label><input type="radio" name="exfoliation" value="daily"> Daily</label>
+                <label><input type="radio" name="exfoliation" value="weekly"> Weekly</label>
+                <label><input type="radio" name="exfoliation" value="monthly"> Monthly</label>
+                <label><input type="radio" name="exfoliation" value="never"> Never</label>
+            </div>
+            <div class="question">
+                <p>3. Do you use sunscreen daily?</p>
+                <label><input type="radio" name="sunscreen" value="yes"> Yes</label>
+                <label><input type="radio" name="sunscreen" value="no"> No</label>
+            </div>
+            <div class="question">
+                <p>4. any skin concern?</p>
+                <label><input type="radio" name="skinType" value="yes"> yes</label>
+                <label><input type="radio" name="skinType" value="No"> no</label>
+            
+            </div>
+            <div class="question">
+                <p>5. have any regular skin care routine?</p>
+                <label><input type="radio" name="skinType" value="yes"> yes</label>
+                <label><input type="radio" name="skinType" value="no"> no</label>
+               
+            </div>
+            <button type="submit">Next</button>
+        </form>
+    </div>
+</body>
+</html>

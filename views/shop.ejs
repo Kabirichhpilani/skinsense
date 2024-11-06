@@ -1,0 +1,55 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+    <div class="row-md-1 hii">
+        
+    
+        <div class="cols-md-3">
+            <img src="/Images/SQV4l6gYTPW-LsXGtvjpxw.webp" alt="">
+        </div>
+        <div class="cols-md-4">
+            <img src="/Images/JTAY7l7XRcyg60cAlY_vAg.jpeg" alt="">
+        </div>
+        <div class="cols-md-5">
+            <img src="/Images/2f7ZVge_Qge5LPmHxDAQjA.jpeg" alt="">
+        </div>
+        <div class="cols-md-1">
+            <img src="/images/755ea831-5007-436c-ba31-7587fd96c95e.gif" alt="shop" class="img-responsive">
+        </div>
+    </div>
+    <!-- <div class="row-md-2">
+        <img src="/Images/dd133d2a-9b0e-411d-ab27-f189fab8cfa0.avif" alt="shop" class="img-responsive">
+    </div> -->
+    <div class="row-md-3">
+        <h1 >Explore By Category</h1>
+    </div>
+    
+    <div class="main2 row row-cols-lg-5 row-cols-md-3 row-cols-sm-1">
+        <div class="pho1"><img src="/Images/Untitled (2).png" alt="skincare">
+        </div>
+        <div class="pho2"><img src="/Images/Untitled (3).png" alt="skincare"></div>
+        <div class="pho3"><img src="/Images/Untitled (4).png"></div>
+        </div>
+        
+        <div class="main4">
+            <h1>BestSellers</h1>
+            <div class="row row-cols-lg-5 row-cols-md-3 row-cols-sm-1">
+            
+                <% for(let listing of allListings) { %>
+                   <a class="anch" href="shop/<%= listing._id %>">
+                    <div class="card col" >
+                        <img src="<%= listing.image %>" class="card-img-top" alt="listing image" style="height: 20rem;">
+                        <div class="card-img-overlay "></div>
+                        <div class="card-body">
+                            <p class="card-text">
+                               <b> <%= listing.name %></b><br>
+                                <%= listing.quantity_ml %>ml<br>
+                                    &#8377;<%= listing.cost_in_rupees%><br>
+                            </p>
+                        </div>
+                    </div>
+                </a>
+            <% } %>
+        </div>
+        </div>
+
+        </body>

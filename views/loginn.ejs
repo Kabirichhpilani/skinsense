@@ -1,0 +1,51 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    
+    nav {
+        display: none !important;
+    }
+    .log2{
+        position: relative;
+        top:-450px;
+        
+        left: 270px;
+        min-height: auto;
+        background-color: white;
+    }
+    .log2 h1{
+        font-size: 60px;
+        font-weight: 700;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .lic img{
+        border-radius: 20px;
+        width: 400px !important;
+        height: 100% !important;
+        position: relative;
+        top:100px  ;
+        left: -200px;
+
+    }
+  
+        
+    </style>
+<body>
+    <div class="lic">
+        <img  src="https://images.unsplash.com/photo-1707645681412-f37327ad4a49?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODN8fGZvciUyMHNraW4lMjBjYXJlJTIwYSUyMHNraW4lMjBjYXJlJTIwcHJvZHVjdHxlbnwwfHwwfHx8MA%3D%3D" alt="">
+    </div>
+
+    <div class="log2">
+        <h1>Welcome<br>Back!</h1>
+        
+        <div class="roww3" style="box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);">
+            <h1>Login</h1>
+            <form method="post" action="/login">
+                <input name="email" type="text" placeholder="email" required>
+                <input name="password" type="password" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+</body>

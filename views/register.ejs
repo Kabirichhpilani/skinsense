@@ -1,0 +1,39 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+    nav {
+       display: none !important;
+    }
+    .log1{
+        position: relative;
+        top:65px;
+    }
+</style>
+<bodY>
+    <div class="log1">
+        <div class="roww1">
+            <img  src="https://images.unsplash.com/photo-1552046122-03184de85e08?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+        </div>
+        <div class="roww2">
+            <h1>
+                Welcome Back!
+            </h1>
+            <form method="post" action="/register">
+                <select name="countryCode" required>
+                    
+                    <option name="countryCode" value="+91">India (+91)</option>
+                    <option name="countryCode" value="+1">USA (+1)</option>
+                    <option name="countryCode" value="+44">UK (+44)</option>
+                    <option name="countryCode" value="+61">Australia (+61)</option>
+
+                </select><br>
+                <input name="phone" type="Number" placeholder="Phone Number" required><br>
+                <input name="email" type="text" placeholder="Email" required><br>
+                <input name="password" type="password" placeholder="Password" required><br>
+                <button name="submitbutton" type="submit">Create account</button>
+            </form>
+            <hr>
+            <h4>or</h4>
+            <h5>Already have an account? <a href="/login">Login</a></h5>
+        </div>  
+    </div>
+</bodY>

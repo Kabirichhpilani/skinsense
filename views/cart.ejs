@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %>
+    <div class="spa">
+        <h1>YOUR BAG</h1>
+        <H4>ADD 1000 FOR FREE SHOPPING</H4>
+        <div class="row33">
+            <div class="col-md-82">
+                <div class="cardo">
+                    <div class="cardo-body">
+                        <% if(cartItems.length === 0) { %>
+                            <p>Your cart is empty.</p>
+                        <% } else { %>
+                            <div class="row row-cols-lg-4 row-cols-md-3 row-cols-sm-2">
+            
+                                <% for(let listing of cartItems) { %>
+                                   
+                                    <div class="card col" >
+                                        <img src="<%= listing.image %>" class="card-img-top" alt="listing image" style="height: 20rem;">
+                                        <div class="card-img-overlayy overlay2"></div>
+                                        <div class="card-body">
+                                            <p class="card-text">
+                                               <b> <%= listing.name %></b><br>
+                                                <%= listing.quantity_ml %>ml<br>
+                                                <p style="display: inline-block;">&#8377;</p><p style="display: inline-block;" id="item_price"><%= listing.cost_in_rupees%> </p><br>
+                                            </p>
+                                            
+                                            <form method="post" action="/cart/<%= listing._id %>?_method=DELETE"  > <button class="btn btn-danger">Remove</button></form>  
+                                        </div>
+                                    </div>
+                              
+                            <% } %>
+                        </div>
+                        </div>
+                        <% } %>
+
+                       
+                                  
+                        
+                    </div>
+                </div>
+            </div>
+
+           </div>
+           <div class="payment">
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    let totalAmount = 0;
+                    const prices = document.querySelectorAll("#item_price");
+                    prices.forEach(price => {
+                        totalAmount += parseFloat(price.textContent);
+                    });
+                    document.getElementById("answer").textContent = totalAmount;
+                });
+            </script>
+            <h1>Total amount is:&#8377;<p style="display: inline-block;" id="answer"></p></h1>
+            <div class="cart-description">
+                <h2>Cart Description</h2>
+                <p>Your cart contains a selection <br>of premium skincare products.<br> Review your items and proceed to<br> checkout when you're ready.<br> Enjoy free shipping on orders<br> over ₹1000!</p>
+                <button>BUY Now</button>
+            </div>
+           </div>
+
+        </div>

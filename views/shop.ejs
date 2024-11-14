@@ -1,38 +1,78 @@
 <% layout("/layouts/boilerplate") %>
+<style>
+    .reveal{
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
+  animation-timeline: view();
+animation-range: entry 40% cover 65%;
+
+}
+@keyframes fadeIn  { 0% {
+        opacity: 1;
+        transform: translateY(50px); /* Start from below */
+    }
+   
+    50% {
+        opacity: 1; /* Fully visible */
+        transform: translateY(0px); /* End position */
+    }
+   
+    100% {
+        opacity: 0; /* Fully visible */
+        transform: translateY(-50px); /* End position */
+    }
+}
+.colorrr{
+    background: rgb(131,109,91);
+background: linear-gradient(180deg, rgba(131,109,91,0.8016456582633054) 0%, rgba(146,140,129,0.5439425770308124) 51%, rgba(184,175,175,0.5663515406162465) 100%);
+}
+
+.main4{
+    background: rgb(184,175,175);
+background: linear-gradient(180deg, rgba(184,175,175,0.5663515406162465) 0%, rgba(184,175,175,0.29744397759103647) 45%, rgba(231,187,187,0.29744397759103647) 83%);
+}
+
+</style>
+<script src="https://cdn.tailwindcss.com">
+    document.addEventListener("DOMContentLoaded", function() {
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                } else {
+                    reveals[i].classList.remove("active");
+                }
+            }
+        }
+
+        window.addEventListener("scroll", reveal, {passive: true});
+        reveal(); // Call reveal once to check initial state
+    });
+</script>
 <body>
-    <div class="row-md-1 hii">
+    <div class="colorrr w-screen">
+    <div class="row-md-1 hii  max-w-800 w-[1000px] ml-[250px] overflow-hidden">
         
-    
-        <div class="cols-md-3">
-            <img src="/Images/SQV4l6gYTPW-LsXGtvjpxw.webp" alt="">
-        </div>
-        <div class="cols-md-4">
-            <img src="/Images/JTAY7l7XRcyg60cAlY_vAg.jpeg" alt="">
-        </div>
-        <div class="cols-md-5">
-            <img src="/Images/2f7ZVge_Qge5LPmHxDAQjA.jpeg" alt="">
-        </div>
-        <div class="cols-md-1">
-            <img src="/images/755ea831-5007-436c-ba31-7587fd96c95e.gif" alt="shop" class="img-responsive">
-        </div>
+        <img class="w-full h-auto overflow-hidden rounded-lg" src="https://ideogram.ai/assets/image/lossless/response/4DH6frydQeKKYPbl8kfIHA">
+       
     </div>
     <!-- <div class="row-md-2">
         <img src="/Images/dd133d2a-9b0e-411d-ab27-f189fab8cfa0.avif" alt="shop" class="img-responsive">
     </div> -->
-    <div class="row-md-3">
-        <h1 >Explore By Category</h1>
-    </div>
+</div>
     
-    <div class="main2 row row-cols-lg-5 row-cols-md-3 row-cols-sm-1">
-        <div class="pho1"><img src="/Images/Untitled (2).png" alt="skincare">
-        </div>
-        <div class="pho2"><img src="/Images/Untitled (3).png" alt="skincare"></div>
-        <div class="pho3"><img src="/Images/Untitled (4).png"></div>
-        </div>
+   
         
         <div class="main4">
             <h1>BestSellers</h1>
-            <div class="row row-cols-lg-5 row-cols-md-3 row-cols-sm-1">
+            
+            <div class="row row-cols-lg-8 row-cols-md-5 row-cols-sm-1" style="overflow: scroll;">
             
                 <% for(let listing of allListings) { %>
                    <a class="anch" href="shop/<%= listing._id %>">
@@ -51,5 +91,55 @@
             <% } %>
         </div>
         </div>
+    <video class="w-max h-auto" controls autoplay loop muted onplay="this.controls=false;">
+        <source src="/Images/4350888-hd_1920_1080_30fps.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="main5">
+<div class="flex" style="background: rgb(242,218,223);
+background: linear-gradient(180deg, rgba(242,218,223,1) 0%, rgba(198,213,218,1) 83%);">
+        <div class="w-50 h-auto ml-4 text-center">
+            <div class="text-2xl mt-28 ">
+            <h1 class="font-bold text-2xl">From Nature to Your Skin</h1>
+              <h4>  Using natural ingredients such as botanical extracts (from plants 🌿), clay (from earth's minerals 🪨), essential oils (from flowers and fruits 🌸), and herbal infusions (from traditional remedies 🌱); you are truly embracing the essence of nature in your skincare routine.</h4>
+        </div>
+        </div>
+        <div>
+            
+            <img class="w-[572px] h-[572px] object-cover reveal" src="https://images.pexels.com/photos/20419149/pexels-photo-20419149/free-photo-of-petals-in-milk-in-bowl.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
 
+        </div>
+    </div>
+    <div class="flex" style="background: rgb(198,213,218);
+        background: linear-gradient(180deg, rgba(198,213,218,1) 0%, rgba(198,213,218,1) 47%, rgba(253,202,98,0.42629551820728295) 100%);">
+
+        <div class="w-50 h-auto ml-4 text-center">
+            <div class="text-2xl mt-28 ">
+            <h1 class="font-bold text-2xl" >High Quality & Original Ingredients</h1>
+                <h4>Obsessed with quality and customer experience, we conduct regular third-party lab tests on all the ingredients we use. You can easily visit our "About Our Ingredients" page to verify the authenticity and quality of our products.</h4>
+            </div>
+            </div>
+            <div>
+                <img class="w-[572px] h-[572px] object-cover reveal" src="https://images.pexels.com/photos/25391643/pexels-photo-25391643/free-photo-of-fruit-lemonade-with-ice.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+            </div>
+        </div>
+        <div class="flex " style="background: rgb(253,202,98);
+            background: linear-gradient(180deg, rgba(253,202,98,0.42629551820728295) 0%, rgba(230,230,250,1) 50%);">
+            <div class="w-50 h-auto ml-4 text-center  ">
+                <div class="text-2xl mt-28 ">
+                <h1 class="font-bold  text-2xl">Healing Energies</h1>
+                <h4>Known for their therapeutic benefits, these natural ingredients offer more than just aesthetic appeal. They are believed to promote healing energies, aiding in everything from stress relief to enhancing skin vitality and supporting overall health.</h4>
+            </div>
+            </div>
+            <div>
+                <img class="w-[572px] h-[572px] object-cover reveal " src="https://images.pexels.com/photos/20419203/pexels-photo-20419203/free-photo-of-spoon-in-food-bowl.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+            
+            </div>
+        </div>
+
+            </div>
+        </div>
+<script>
+    
+</script>
         </body>

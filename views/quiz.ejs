@@ -73,43 +73,133 @@
         }
     </style>
 </head>
+
 <body>
     <div class="quiz-container">
         <h1>Skincare Quiz</h1>
-        <form id="quiz-form">
-            <div class="question">
-                <p>1. What is your skin type?</p>
-                <label><input type="radio" name="skinType" value="oily"> Oily</label>
-                <label><input type="radio" name="skinType" value="dry"> Dry</label>
-                <label><input type="radio" name="skinType" value="combination"> Combination</label>
-                <label><input type="radio" name="skinType" value="sensitive"> Sensitive</label>
-            </div>
-            <div class="question">
-                <p>2. How often do you exfoliate your skin?</p>
-                <label><input type="radio" name="exfoliation" value="daily"> Daily</label>
-                <label><input type="radio" name="exfoliation" value="weekly"> Weekly</label>
-                <label><input type="radio" name="exfoliation" value="monthly"> Monthly</label>
-                <label><input type="radio" name="exfoliation" value="never"> Never</label>
-            </div>
-            <div class="question">
-                <p>3. Do you use sunscreen daily?</p>
-                <label><input type="radio" name="sunscreen" value="yes"> Yes</label>
-                <label><input type="radio" name="sunscreen" value="no"> No</label>
-            </div>
-            <div class="question">
-                <p>4. any skin concern?</p>
-                <label><input type="radio" name="skinType" value="yes"> yes</label>
-                <label><input type="radio" name="skinType" value="No"> no</label>
-            
-            </div>
-            <div class="question">
-                <p>5. have any regular skin care routine?</p>
-                <label><input type="radio" name="skinType" value="yes"> yes</label>
-                <label><input type="radio" name="skinType" value="no"> no</label>
-               
-            </div>
-            <button type="submit">Next</button>
+        
+        <form action="/quiz" method="post" id="skincareQuiz">
+            <!-- Basic Information -->
+            <fieldset>
+                <legend>Basic Information</legend>
+                <label for="age">What is your age?</label>
+                <select id="age" name="age">
+                    <option value="under-18">Under 18</option>
+                    <option value="18-24">18-24</option>
+                    <option value="25-34">25-34</option>
+                    <option value="35-44">35-44</option>
+                    <option value="45-and-above">45 and above</option>
+                </select>
+
+                <label>What is your gender?</label>
+                <label><input type="radio" name="gender" value="male"> Male</label>
+                <label><input type="radio" name="gender" value="female"> Female</label>
+                <label><input type="radio" name="gender" value="prefer-not-to-say"> Prefer not to say</label>
+            </fieldset>
+
+            <!-- Skin Type Assessment -->
+            <fieldset>
+                <legend>Skin Type Assessment</legend>
+                <label>How would you describe your skin type?</label>
+                <select name="skin-type">
+                    <option value="oily">Oily</option>
+                    <option value="dry">Dry</option>
+                    <option value="combination">Combination</option>
+                    <option value="sensitive">Sensitive</option>
+                    <option value="normal">Normal</option>
+                </select>
+
+                <label>Do you experience any of the following skin conditions? (Select all that apply)</label>
+                <label><input type="checkbox" name="conditions" value="acne"> Acne</label>
+                <label><input type="checkbox" name="conditions" value="eczema"> Eczema</label>
+                <label><input type="checkbox" name="conditions" value="rosacea"> Rosacea</label>
+                <label><input type="checkbox" name="conditions" value="dark-spots"> Dark spots</label>
+                <label><input type="checkbox" name="conditions" value="fine-lines"> Fine lines and wrinkles</label>
+            </fieldset>
+
+            <!-- Current Skincare Routine -->
+            <fieldset>
+                <legend>Current Skincare Routine</legend>
+                <label>How many steps are in your current skincare routine?</label>
+                <select name="routine-steps">
+                    <option value="1-2">1-2</option>
+                    <option value="3-4">3-4</option>
+                    <option value="5-or-more">5 or more</option>
+                </select>
+
+                <label>What products do you currently use? (Select all that apply)</label>
+                <label><input type="checkbox" name="products" value="cleanser"> Cleanser</label>
+                <label><input type="checkbox" name="products" value="toner"> Toner</label>
+                <label><input type="checkbox" name="products" value="moisturizer"> Moisturizer</label>
+                <label><input type="checkbox" name="products" value="sunscreen"> Sunscreen</label>
+                <label><input type="checkbox" name="products" value="exfoliator"> Exfoliator</label>
+                <label><input type="checkbox" name="products" value="serums"> Serums</label>
+            </fieldset>
+
+            <!-- Lifestyle Factors -->
+            <fieldset>
+                <legend>Lifestyle Factors</legend>
+                <label>How often do you spend time outdoors?</label>
+                <select name="outdoor-time">
+                    <option value="daily">Daily</option>
+                    <option value="a-few-times-a-week">A few times a week</option>
+                    <option value="rarely">Rarely</option>
+                    <option value="never">Never</option>
+                </select>
+
+                <label>How many glasses of water do you drink daily?</label>
+                <select name="water-intake">
+                    <option value="less-than-2">Less than 2</option>
+                    <option value="2-4">2 - 4</option>
+                    <option value="5-7">5-7</option>
+                    <option value="more-than-7">More than 7</option>
+                </select>
+            </fieldset>
+
+            <!-- Skin Goals and Preferences -->
+            <fieldset>
+                <legend>Skin Goals and Preferences</legend>
+                <label>What are your main skincare goals? (Select all that apply)</label>
+                <label><input type="checkbox" name="goals" value="hydration"> Hydration</label>
+                <label><input type="checkbox" name="goals" value="anti-aging"> Anti-aging</label>
+                <label><input type="checkbox" name="goals" value="brightening"> Brightening</label>
+                <label><input type="checkbox" name="goals" value="acne-treatment"> Acne treatment</label>
+                <label><input type="checkbox" name="goals" value="sun-protection"> Sun protection</label>
+
+                <label>Are there any specific ingredients you prefer or want to avoid?</label>
+                <input type="text" name="preferred-ingredients" placeholder="Prefer (e.g., Hyaluronic Acid)">
+                <input type="text" name="avoided-ingredients" placeholder="Avoid (e.g., Parabens)">
+            </fieldset>
+
+            <!-- Product Preferences -->
+            <fieldset>
+                <legend>Product Preferences</legend>
+                <label>What type of products do you prefer?</label>
+                <label><input type="checkbox" name="product-type" value="natural"> Natural/Organic</label>
+                <label><input type="checkbox" name="product-type" value="dermatologist-tested"> Dermatologist-tested</label>
+                <label><input type="checkbox" name="product-type" value="cruelty-free"> Cruelty-free</label>
+                <label><input type="checkbox" name="product-type" value="fragrance-free"> Fragrance-free</label>
+
+                <label>How do you prefer to shop for skincare products?</label>
+                <label><input type="radio" name="shopping-preference" value="online"> Online</label>
+                <label><input type="radio" name="shopping-preference" value="in-store"> In-store</label>
+                <label><input type="radio" name="shopping-preference" value="both"> Both</label>
+            </fieldset>
+
+            <!-- Final Thoughts -->
+            <fieldset>
+                <legend>Final Thoughts</legend>
+                <label>Would you like to receive personalized product recommendations via email?</label>
+                <label><input type="radio" name="email-recommendations" value="yes"> Yes</label>
+                <label><input type="radio" name="email-recommendations" value="no"> No</label>
+
+                <label for="comments">Any additional comments or specific concerns?</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="Your comments..."></textarea>
+            </fieldset>
+
+            <button  type="submit">Submit</button>
         </form>
     </div>
 </body>
+
 </html>

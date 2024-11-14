@@ -1,4 +1,4 @@
-const sampleproduct = [
+const sampleproduct =  [
     {
         image: "https://images.unsplash.com/photo-1519668963014-2308b08e5e9b?q=80&w=1587&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", // Hydrating Face Cream
         name: "Hydrating Face Cream",
@@ -69,6 +69,76 @@ const sampleproduct = [
         quantity_ml: 100,
         cost_in_rupees: 799,
         description: "A broad-spectrum sunscreen that protects against harmful UV rays while keeping the skin hydrated."
+    }
+    , {
+        image: "https://images.pexels.com/photos/8490182/pexels-photo-8490182.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Deep Cleansing Oil",
+        quantity_ml: 150,
+        cost_in_rupees: 799,
+        description: "A gentle oil cleanser that effectively removes makeup and impurities without stripping the skin."
+    },
+    {
+        image: "https://images.pexels.com/photos/15327097/pexels-photo-15327097/free-photo-of-woman-with-beauty-product-on-face-recommending-cosmetics.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Brightening Peel Pads",
+        quantity_ml: 60,
+        cost_in_rupees: 899,
+        description: "Exfoliating pads that brighten the skin and improve texture with regular use."
+    },
+    {
+        image: "https://images.pexels.com/photos/4056460/pexels-photo-4056460.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Hydrating Overnight Mask",
+        quantity_ml: 100,
+        cost_in_rupees: 999,
+        description: "An overnight mask that deeply hydrates and revitalizes the skin while you sleep."
+    },
+    {
+        image: "https://images.pexels.com/photos/8015483/pexels-photo-8015483.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Nourishing Body Butter",
+        quantity_ml: 200,
+        cost_in_rupees: 1299,
+        description: "A rich body butter that provides intense hydration and leaves the skin feeling soft and smooth."
+    },
+    {
+        image: "https://images.pexels.com/photos/14836428/pexels-photo-14836428.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Gentle Exfoliating Gel",
+        quantity_ml: 100,
+        cost_in_rupees: 699,
+        description: "A gentle exfoliating gel that removes dead skin cells, revealing a brighter complexion."
+    },
+    {
+        image: "https://images.pexels.com/photos/8140899/pexels-photo-8140899.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Skin Firming Lotion",
+        quantity_ml: 250,
+        cost_in_rupees: 999,
+        description: "An advanced lotion that firms and tones the skin, enhancing elasticity and smoothness."
+    },
+    {
+        image: "https://images.pexels.com/photos/7321505/pexels-photo-7321505.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Smoothing Hand Cream",
+        quantity_ml: 75,
+        cost_in_rupees: 399,
+        description: "A nourishing hand cream that hydrates and softens dry hands, leaving them smooth and supple."
+    },
+    {
+        image: "https://images.pexels.com/photos/12322955/pexels-photo-12322955.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Revitalizing Foot Cream",
+        quantity_ml: 100,
+        cost_in_rupees: 499,
+        description: "An intensive foot cream that softens rough skin and provides lasting hydration."
+    },
+    {
+        image: "https://images.pexels.com/photos/7234622/pexels-photo-7234622.jpeg?auto=compress&cs=tinysrgb&w=600",
+        name: "Repairing Cuticle Oil",
+        quantity_ml: 15,
+        cost_in_rupees: 299,
+        description: "A nourishing cuticle oil that strengthens and repairs nails while hydrating the cuticles."
+    },
+    {
+        image: "https://www.pexels.com/photo/small-vial-on-white-background-17220085/",
+        name: "Calming Lavender Mist",
+        quantity_ml: 100,
+        cost_in_rupees: 399,
+        description: "A soothing mist infused with lavender to calm the senses and refresh the skin."
     }
 ];
 

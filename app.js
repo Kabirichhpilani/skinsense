@@ -4,6 +4,7 @@ const port = 8080;
 const path = require('path');
 const Register = require('./models/registers');
 const engine = require('ejs-mate');
+const Quiz = require('./models/result');
 app.use('/images', express.static(path.join(__dirname, 'images')));
 app.use('/static', express.static(path.join(__dirname, 'public')));
 const bodyParser = require('body-parser');
@@ -76,7 +77,9 @@ app.post('/register', async (req, res) => {
 app.get('/home',(req,res)=>{
     res.render('home.ejs');
 });
-
+app.get('/shop/search', (req, res) => {
+    res.render('search.ejs');
+});//
 app.post('/login', async (req, res) => {
     try {
         const user = await Register.findOne({ email: req.body.email, password: req.body.password });
@@ -90,6 +93,7 @@ app.post('/login', async (req, res) => {
         res.send('error');
     }
 });
+
 app.get('/shop',async(req,res)=>{
 
     let allListings = await Productlisting.find({});
@@ -142,6 +146,39 @@ app.post('/shop/:id/review', async (req, res) => {
         res.status(500).send("An error occurred while submitting your review. Please try again.");
     }
 });
+app.post('/quiz', async (req, res) => {
+    try {
+        const quizData = {
+            age: req.body.age,
+            gender: req.body.gender,
+            skinType: req.body.skinType,
+            conditions: req.body.conditions,
+            routineSteps: req.body.routineSteps,
+            products: req.body.products,
+            outdoorTime: req.body.outdoorTime,
+            waterIntake: req.body.waterIntake,
+            goals: req.body.goals,
+            preferredIngredients: req.body.preferredIngredients,
+            avoidedIngredients: req.body.avoidedIngredients,
+            productType: req.body.productType,
+            shoppingPreference: req.body.shoppingPreference,
+            emailRecommendations: req.body.emailRecommendations,
+            comments: req.body.comments
+        };
+
+        const newQuiz = new Quiz(quizData);
+        await newQuiz.save();
+        res.redirect('/result');
+    } catch (err) {
+        console.error('Error saving quiz data:', err);
+        res.status(500).send('An error occurred while submitting your quiz. Please try again.');
+    }
+});
+app.get('/result', async (req, res) => {
+    let quizResults = await Quiz.find({});
+    res.render('result.ejs', { quizResults });
+});
+
 app.get('/cart', async (req, res) => {
     let cartItems = await Cart.find({});
     res.render('cart.ejs', { cartItems });
@@ -167,6 +204,16 @@ app.post("/home/navbar",async(req,res)=>{
 });
 app.get("/imginput",(req,res)=>{
     res.render('imginput.ejs');
+});
+app.get('/search/:name', async (req, res) => {
+    const name = req.params.name;
+    try {
+        const products = await Productlisting.find({ name: new RegExp(name, 'i') });
+        res.render('shop/search', { products: products });
+    } catch (err) {
+        console.error('Error during product search:', err);
+        res.render('shop/search', { products: null });
+    }
 });
 
 
